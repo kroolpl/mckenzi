@@ -6,4 +6,52 @@ import NavigationReact from './NavigationReact';
 const currentPath = Astro.url.pathname;
 ---
 
+<script>
+  const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+
 <NavigationReact client:load logo={logo} currentPath={currentPath} />
+
+<div class="flex md:hidden">
+  <button 
+    class="p-2 rounded-full hover:bg-gray-100 transition-colors"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span class="sr-only">Open main menu</span>
+    <!-- Icon for menu -->
+    <svg 
+      class="w-6 h-6" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24" 
+      aria-hidden="true"
+    >
+      <path 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" 
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  </button>
+</div>
+
+<div 
+  id="mobile-menu"
+  class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg"
+  role="navigation"
+  aria-label="Mobile navigation"
+>
+  <!-- Menu items -->
+</div>
