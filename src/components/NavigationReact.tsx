@@ -76,9 +76,10 @@ export default function Navigation({ logo, currentPath }: Props) {
               <img src={logo.src} alt="Logo" className="h-8 w-auto" />
             </a>
             <div className="flex items-center">
-              <span className="text-lg font-serif font-bold text-primary-600">
-                mckenzi<span className="text-gray-600">.co.uk</span>
-              </span>
+              <a href="/" className="text-lg font-serif font-bold">
+                <span className="text-primary-600">McKenzi</span>
+                <span className="text-gray-600">.co.uk</span>
+              </a>
             </div>
           </div>
 
@@ -148,7 +149,7 @@ export default function Navigation({ logo, currentPath }: Props) {
         >
           {/* Mobile Menu Panel */}
           <div
-            className={`absolute right-0 top-0 bottom-0 w-[320px] bg-white shadow-2xl transform transition-all duration-300
+            className={`absolute right-0 top-0 bottom-0 w-[400px] bg-white shadow-2xl transform transition-all duration-300
               ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
             onClick={e => e.stopPropagation()}
           >
@@ -172,8 +173,8 @@ export default function Navigation({ logo, currentPath }: Props) {
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center px-4 py-3 text-base font-medium rounded-xl
-                      transition-all duration-200 ease-in-out
+                    className={`flex items-center justify-end px-4 py-3 text-base font-medium rounded-xl
+                      transition-all duration-200 ease-in-out gap-3
                       ${currentPath === item.href 
                         ? 'bg-primary-50 text-primary-600' 
                         : 'text-gray-700 hover:bg-gray-50 hover:text-primary-600'
@@ -181,8 +182,19 @@ export default function Navigation({ logo, currentPath }: Props) {
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
+                    <item.icon className="w-5 h-5" />
                   </a>
                 ))}
+                {/* Contact Link */}
+                <a
+                  href="/kontakt"
+                  className="flex items-center justify-end px-4 py-3 text-base font-medium rounded-xl
+                    transition-all duration-200 ease-in-out text-gray-700 hover:bg-gray-50 hover:text-primary-600 gap-3"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Kontakt
+                  <PhoneIcon className="w-5 h-5" />
+                </a>
               </div>
             </div>
 

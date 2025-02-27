@@ -1,5 +1,7 @@
 ---
 import bckg from '../assets/images/bckg.jpeg';
+import avatarMarta from '../assets/images/avatar_Marta.webp';
+import avatarBeta from '../assets/images/avatat_beta.webp';
 ---
 
 <section class="relative overflow-hidden min-h-[90vh] flex items-center">
@@ -51,7 +53,55 @@ import bckg from '../assets/images/bckg.jpeg';
         </div>
       </div>
       
-      
+      <!-- Experts avatars -->
+      <div class="relative h-[400px] hidden md:block">
+        <!-- First expert -->
+        <div class="absolute -top-10 right-12 animate-float-1">
+          <div class="relative flex items-center gap-6">
+            <!-- Caption on the left -->
+            <div class="w-64">
+              <div class="bg-black/40 p-4 rounded-xl shadow-lg">
+                <p class="text-white font-medium mb-2">Grażyna Modzelewska</p>
+                <p class="text-white text-sm leading-snug font-light">
+                  "Jestem głosem najmłodszych – ich bezpieczeństwo to kompas, który wyznacza każdą decyzję."
+                </p>
+              </div>
+            </div>
+            <!-- Avatar -->
+            <div class="relative">
+              <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-300 to-primary-600 rounded-full blur opacity-70"></div>
+              <img 
+                src={avatarMarta.src} 
+                alt="Marta - McKenzie Friend Expert" 
+                class="relative w-64 h-64 rounded-full border-2 border-white/80 shadow-xl object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Second expert -->
+        <div class="absolute top-44 right-32 animate-float-2">
+          <div class="relative flex items-center gap-6">
+            <!-- Avatar -->
+            <div class="relative">
+              <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-300 to-primary-600 rounded-full blur opacity-70"></div>
+              <img 
+                src={avatarBeta.src} 
+                alt="Beta - McKenzie Friend Expert" 
+                class="relative w-56 h-56 rounded-full border-2 border-white/80 shadow-xl object-cover"
+              />
+            </div>
+            <!-- Caption on the right -->
+            <div class="w-64">
+              <div class="bg-black/40 p-4 rounded-xl shadow-lg">
+                <p class="text-white font-medium mb-2">Beata Modzelewska</p>
+                <p class="text-white text-sm leading-snug font-light">
+                  "Wiedza to Twój najsilniejszy oręż – bronię Twoich praw, byś mógł iść naprzód z godnością."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -94,5 +144,25 @@ import bckg from '../assets/images/bckg.jpeg';
   
   .animate-slide-in {
     animation: slide-in 1s ease-out forwards;
+  }
+
+  @keyframes float-1 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-5px, -8px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes float-2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(5px, -8px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .animate-float-1 {
+    animation: float-1 8s infinite ease-in-out;
+  }
+
+  .animate-float-2 {
+    animation: float-2 10s infinite ease-in-out;
   }
 </style>
