@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { 
+  HomeIcon, 
+  UserGroupIcon, 
+  DocumentTextIcon, 
+  NewspaperIcon,
+  PhoneIcon 
+} from '@heroicons/react/24/outline';
 
 interface NavItem {
   name: string;
   href: string;
+  icon: React.ForwardRefExoticComponent<any>;
 }
 
 interface Props {
@@ -13,10 +21,26 @@ interface Props {
 }
 
 const navItems: NavItem[] = [
-  { name: "Strona główna", href: "/" },
-  { name: "Usługi", href: "/uslugi" },
-  { name: "O nas", href: "/o-nas" },
-  { name: "Blog", href: "/blog" },
+  { 
+    name: "Strona główna", 
+    href: "/",
+    icon: HomeIcon
+  },
+  { 
+    name: "Usługi", 
+    href: "/uslugi",
+    icon: DocumentTextIcon
+  },
+  { 
+    name: "O nas", 
+    href: "/o-nas",
+    icon: UserGroupIcon
+  },
+  { 
+    name: "Blog", 
+    href: "/blog",
+    icon: NewspaperIcon
+  },
 ];
 
 export default function Navigation({ logo, currentPath }: Props) {
@@ -66,15 +90,15 @@ export default function Navigation({ logo, currentPath }: Props) {
                 href={item.href}
                 className={`
                   relative px-4 py-2 text-sm font-medium transition-all duration-200
-                  group hover:text-primary-600
+                  group hover:text-primary-600 flex items-center
                   ${currentPath === item.href 
                     ? 'text-primary-600' 
                     : 'text-gray-700'
                   }
                 `}
               >
+                <item.icon className="w-5 h-5 mr-2" />
                 {item.name}
-                {/* Animated underline effect */}
                 <span className={`
                   absolute bottom-0 left-0 w-full h-0.5 rounded-full transform origin-left transition-transform duration-300
                   ${currentPath === item.href
@@ -89,8 +113,9 @@ export default function Navigation({ logo, currentPath }: Props) {
               href="/kontakt"
               className="ml-6 px-4 py-2 text-sm font-medium text-white bg-primary-600 
                        rounded-lg hover:bg-primary-700 transition-colors duration-200
-                       shadow-sm hover:shadow-md"
+                       shadow-sm hover:shadow-md inline-flex items-center"
             >
+              <PhoneIcon className="w-5 h-5 mr-2" />
               Kontakt
             </a>
           </div>
