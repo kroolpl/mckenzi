@@ -4,19 +4,20 @@ description: "Dowiedz się o nowych przepisach dotyczących obowiązkowej mediac
 pubDate: 2024-02-15
 author: "McKenzie Friend"
 image:
-  src: "/images/blog/mediacje.jpg"
+  src: "/src/assets/images/blog/mediacje.jpg"
   alt: "Mediacja rodzinna"
   width: 1200
   height: 675
 tags: ["mediacja", "MIAM", "prawo rodzinne", "rozwód", "opieka nad dziećmi"]
 ---
 
-Od kwietnia 2024 roku w Anglii i Walii obowiązują nowe przepisy w prawie rodzinnym, które znacząco wzmacniają rolę mediacji w rozwiązywaniu sporów. Jedną z kluczowych zmian jest obowiązkowy udział obu stron w Mediation Information and Assessment Meeting (MIAM) przed złożeniem wniosku do sądu.
+# Obowiązkowa mediacja (MIAM) – od kwietnia 2024 obie strony muszą uczestniczyć w mediacji przed wnioskiem do sądu
+
+Od kwietnia 2024 roku w Anglii i Walii obowiązują nowe przepisy w prawie rodzinnym, które znacząco wzmacniają rolę mediacji w rozwiązywaniu sporów. Jedną z kluczowych zmian jest obowiązkowy udział obu stron w Mediation Information and Assessment Meeting (MIAM) przed złożeniem wniosku do sądu. Dlaczego to ważne? Jak przygotować się do mediacji? I czy zawsze trzeba w niej uczestniczyć? Przedstawiamy najważniejsze informacje dla polskich rodzin w UK.
 
 ## Czym jest MIAM?
 
 MIAM to obowiązkowe spotkanie informacyjne dotyczące mediacji, które ma na celu:
-
 - Wyjaśnienie stronom, na czym polega mediacja i jakie korzyści może przynieść
 - Próba polubownego rozwiązania sporu bez angażowania sądu
 - Ocena, czy dana sprawa nadaje się do mediacji
@@ -52,17 +53,19 @@ Osoby o niskich dochodach mogą ubiegać się o pokrycie kosztów mediacji z fun
 ## Jak wygląda proces po MIAM?
 
 ### Jeśli mediacja się powiedzie:
+
 Strony podpisują porozumienie, które można zatwierdzić w sądzie jako prawnie wiążący dokument. To oszczędza czas, pieniądze i stres.
 
 ### Jeśli mediacja nie przyniesie efektu:
+
 Mediator wystawia Formularz C100, który umożliwia złożenie sprawy do sądu. Wniosek musi jednak zawierać informację o próbie mediacji lub uzasadnienie, dlaczego nie doszła do skutku.
 
 ## Dlaczego mediacja jest lepsza niż sąd?
 
-- **Mniej konfliktów:** Mediacja skupia się na współpracy, a nie rywalizacji
-- **Kontrola nad decyzjami:** To strony ustalają warunki, a nie sędzia
-- **Niższe koszty:** Godzina mediacji to koszt około £100–£200, podczas gdy godzina pracy prawnika to nawet £300–£500
-- **Szybsze rozwiązanie:** Proces sądowy trwa miesiącami, mediacja często kończy się w ciągu kilku spotkań
+- **Mniej konfliktów**: Mediacja skupia się na współpracy, a nie rywalizacji
+- **Kontrola nad decyzjami**: To strony ustalają warunki, a nie sędzia
+- **Niższe koszty**: Godzina mediacji to koszt około £100–£200, podczas gdy godzina pracy prawnika to nawet £300–£500
+- **Szybsze rozwiązanie**: Proces sądowy trwa miesiącami, mediacja często kończy się w ciągu kilku spotkań
 
 ## Jak przygotować się do MIAM?
 
@@ -77,17 +80,16 @@ Pomagamy w:
 - Wypełnieniu formularzy
 - Zrozumieniu procedur prawnych
 
-### Bądź otwarty na kompromis
+### Bądź otwarty na kompromis:
 Mediacja wymaga gotowości do dialogu. Jeśli druga strona podejdzie do sprawy w ten sam sposób, szanse na ugodę znacząco rosną.
 
-## Potrzebujesz pomocy?
+## Nie spełniasz warunków MIAM? Skontaktuj się z nami!
 
 Jeśli Twoja sprawa kwalifikuje się do wyjątku (np. przemoc domowa) lub potrzebujesz wsparcia w przygotowaniu do mediacji, jesteśmy tutaj, aby pomóc. Oferujemy:
-
 - Doradztwo w języku polskim
 - Pomoc w uzyskaniu zwolnienia z opłat sądowych
 - Wsparcie w nagłych przypadkach (np. ryzyko wywiezienia dziecka)
 
-> "Mediacja to szansa, by uniknąć wojny na sali sądowej. Nie trać jej – działaj mądrze i z wsparciem profesjonalistów."
+📩 Napisz do nas na Messengerze – umówimy bezpłatną konsultację i pokażemy, jak skutecznie chronić swoje prawa.
 
-📩 Napisz do nas na Messengerze – umówimy bezpłatną konsultację i pokażemy, jak skutecznie chronić swoje prawa. 
+> "Mediacja to szansa, by uniknąć wojny na sali sądowej. Nie trać jej – działaj mądrze i z wsparciem profesjonalistów."
