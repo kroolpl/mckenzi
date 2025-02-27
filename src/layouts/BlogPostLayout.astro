@@ -7,6 +7,17 @@ import { formatDate } from '../utils/dateUtils';
 import { Image } from 'astro:assets';
 
 const { frontmatter } = Astro.props;
+
+// Add this function to process markdown content and wrap images with Image component
+const replaceImagesInContent = async () => {
+  const content = await Astro.slots.render('default');
+  return content.replace(
+    /<img([^>]*)src="([^"]*)"([^>]*)>/g,
+    '<Image$1src="$2"$3width={1200} height={675} class="w-full h-auto" />'
+  );
+};
+
+const processedContent = await replaceImagesInContent();
 ---
 
 <Layout title={`${frontmatter.title} | McKenzie Friend Blog`}>
@@ -62,7 +73,7 @@ const { frontmatter } = Astro.props;
       <section class="py-16">
         <div class="container mx-auto px-4">
           <div class="max-w-3xl mx-auto prose prose-lg prose-primary">
-            <slot />
+            <Fragment set:html={processedContent} />
           </div>
         </div>
       </section>
@@ -280,8 +291,10 @@ const { frontmatter } = Astro.props;
 
   /* Images */
   .prose img {
-    border-radius: 0.375rem;
+    @apply rounded-lg;
     margin: 1.5em 0;
+    width: 100%;
+    height: auto;
   }
 
   /* Improved spacing between sections */
