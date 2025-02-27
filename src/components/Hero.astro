@@ -1,0 +1,117 @@
+---
+import bckg from '../assets/images/bckg.jpeg';
+---
+
+<section class="relative overflow-hidden min-h-[90vh] flex items-center">
+  <!-- Background image with enhanced gradient overlay -->
+  <div class="absolute inset-0 z-0">
+    <!-- Multiple layered gradients for depth and uniformity -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/75 to-black/70 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    
+    <img 
+      src={bckg.src} 
+      alt="Background" 
+      class="w-full h-full object-cover scale-110 animate-subtle-zoom opacity-35"
+    />
+    
+    <!-- Enhanced decorative elements -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.4),transparent_70%)]"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
+    
+    <!-- Subtle pattern overlay for texture -->
+    <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiPjwvcmVjdD4KPC9zdmc+')]"></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10 pt-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Text content with card effect -->
+      <div class="backdrop-blur-sm bg-white/10 p-8 md:p-10 rounded-2xl border border-white/20 shadow-2xl transform md:translate-x-12 animate-slide-in">
+        <h1 class="text-4xl md:text-5xl font-serif font-semibold text-white mb-6 leading-tight">
+          Profesjonalne Wsparcie <span class="text-primary-300">McKenzie Friend</span> dla Polaków w UK
+        </h1>
+        <p class="text-xl text-gray-100 mb-8 font-light">
+          Ekspercka pomoc w sprawach rodzinnych, pomagamy polskojęzycznym rodzinom w poruszaniu się po brytyjskim systemie prawnym.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="#contact" 
+            class="bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-500 transition-all duration-300 shadow-lg hover:shadow-primary-500/30 hover:-translate-y-1"
+          >
+            Darmowa Konsultacja
+          </a>
+          <a 
+            href="#services" 
+            class="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-3 rounded-lg hover:bg-white/20 transition-all duration-300 shadow-lg hover:-translate-y-1"
+          >
+            Nasze Usługi
+          </a>
+        </div>
+      </div>
+      
+      <!-- Floating card with key benefits -->
+      <div class="hidden md:block">
+        <div class="backdrop-blur-md bg-white/10 p-6 rounded-xl border border-white/20 shadow-xl transform -translate-y-6 animate-float">
+          <h3 class="text-white text-xl font-medium mb-4">Dlaczego my?</h3>
+          <ul class="space-y-3">
+            {[
+              "Dwujęzyczna obsługa (polski i angielski)",
+              "Wieloletnie doświadczenie w brytyjskich sądach",
+              "Przystępne ceny i elastyczne warunki",
+              "Indywidualne podejście do każdej sprawy"
+            ].map(item => (
+              <li class="flex items-start gap-2 text-gray-100">
+                <svg class="w-5 h-5 text-primary-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+    <a href="#services" class="text-white opacity-80 hover:opacity-100 transition-opacity">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes subtle-zoom {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(-6px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(-6px); }
+  }
+  
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .animate-subtle-zoom {
+    animation: subtle-zoom 20s infinite alternate ease-in-out;
+  }
+  
+  .animate-float {
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 1s ease-out forwards;
+  }
+</style>

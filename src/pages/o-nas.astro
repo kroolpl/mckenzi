@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import beataImage from '../assets/images/Beata.jpg';
+import AnimatedSection from '../components/AnimatedSection.astro';
+
+const team = [
+  {
+    name: "Beata Wojdałowicz",
+    title: "Ekspertka Prawa Rodzinnego",
+    qualifications: [
+      "Absolwentka Prawa Rodzinnego na Uniwersytecie Westminster w Londynie z wyróżnieniem",
+      "Członkini Chartered Institute of Legal Executives (CILEX)",
+      "Certyfikowana mediatorka z ponad 10-letnim doświadczeniem",
+      "Specjalistka w sprawach transgranicznych (polsko-brytyjskie rodziny)",
+      "Doświadczenie w renomowanej kancelarii \"Oliver Fisher\" w Londynie"
+    ],
+    languages: "Płynna polszczyzna i angielski",
+    bio: "Beata posiada ponad 10-letnie doświadczenie w prawie rodzinnym w Wielkiej Brytanii. Specjalizuje się w sprawach transgranicznych, gdzie jedna strona jest z Polski, a druga z UK. Jej podejście opiera się na mediacji i poszukiwaniu rozwiązań, które są najlepsze dla dobra dzieci."
+  },
+  {
+    name: "Grażyna Modzelewska",
+    title: "Założycielka & McKenzie Friend",
+    image: "/images/grazyna.jpg",
+    qualifications: [
+      "Założycielka firmy w 2015 roku",
+      "Ponad 15 lat doświadczenia w sprawach opieki nad dziećmi, rozwodów i podziału majątku",
+      "Ekspertka od spraw z udziałem CAFCASS",
+      "Inicjatorka warsztatów edukacyjnych dla polskiej społeczności",
+      "Sukcesy w rozwiązywaniu skomplikowanych konfliktów rodzinnych"
+    ],
+    languages: "Polski i angielski",
+    philosophy: "Dziecko zawsze jest w centrum moich działań. Każda decyzja musi służyć jego dobru."
+  }
+];
+
+const benefits = [
+  {
+    title: "Niskie koszty",
+    description: "Nawet 3x taniej niż u adwokata. Działamy online, minimalizując koszty biurowe. Nasze usługi to często tylko 1/3 ceny tradycyjnego prawnika (np. rozwód od £400 zamiast £1500+).",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+    </svg>`
+  },
+  {
+    title: "Wirtualne biuro",
+    description: "Pomoc dostępna 24/7. Nie trać czasu na dojazdy. Wszystkie formalności załatwiamy przez internet – od złożenia wniosku po udział w rozprawie online. Działamy na terenie całej Anglii i Walii.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+    </svg>`
+  },
+  {
+    title: "Wsparcie w języku polskim",
+    description: "Oferujemy nie tylko doradztwo po polsku, ale także darmowego tłumacza sądowego. Dzięki temu rozumiesz każdy etap procesu, a dokumenty są precyzyjne.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+    </svg>`
+  },
+  {
+    title: "Indywidualne podejście",
+    description: "Każdy przypadek analizujemy od podstaw, przygotowując strategię \"szyte na miarę\". W ciągu ostatnich 9 lat pomogliśmy ponad 800 rodzinom w osiągnięciu sprawiedliwych rozwiązań.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>`
+  },
+  {
+    title: "Skupienie na mediacji",
+    description: "Jako certyfikowane mediatorki zachęcamy do polubownych rozwiązań. Dzięki temu 70% naszych spraw kończy się ugodą bez konieczności długotrwałych procesów.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+    </svg>`
+  }
+];
+---
+
+<Layout title="O Nas | McKenzie Friend Services | Profesjonalne Wsparcie Prawne dla Polaków w UK">
+  <Navigation />
+  
+  <main>
+    <!-- Hero Section -->
+    <AnimatedSection animation="fadeIn" duration={0.8}>
+      <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-primary-50 to-white">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-serif font-semibold text-gray-900 mb-6">
+              Kim jesteśmy?
+            </h1>
+            <p class="text-xl text-gray-600">
+              Nasz zespół to połączenie wiedzy prawnej, doświadczenia i prawdziwej pasji pomagania. Poznaj Beatę i Grażynę – ekspertki, które od lat wspierają polskie rodziny w najtrudniejszych chwilach, oferując nie tylko profesjonalne doradztwo, ale także zrozumienie kulturowych i językowych potrzeb rodaków w UK.
+            </p>
+          </div>
+        </div>
+      </section>
+    </AnimatedSection>
+
+    <!-- Team Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <AnimatedSection animation="slideUp" delay={0.1}>
+            <h2 class="text-3xl font-serif font-semibold text-center text-gray-900 mb-12">Nasz Zespół</h2>
+          </AnimatedSection>
+          
+          {team.map((member, index) => (
+            <AnimatedSection animation="slideUp" delay={0.2 + index * 0.1} duration={0.6}>
+              <div class="mb-16 bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                  <!-- Image column - smaller and fixed width -->
+                  <div class="md:w-1/4 shrink-0">
+                    <div class="h-full">
+                      <Image 
+                        src={beataImage} 
+                        alt={member.name}
+                        class="w-full h-full object-cover object-center"
+                        width={300}
+                        height={400}
+                        quality={85}
+                      />
+                    </div>
+                  </div>
+                  
+                  <!-- Content column -->
+                  <div class="p-6 md:p-8 md:w-3/4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h3 class="text-2xl font-serif font-semibold text-gray-900">{member.name}</h3>
+                        <p class="text-primary-600 font-medium">{member.title}</p>
+                      </div>
+                      <div class="mt-2 md:mt-0">
+                        <span class="inline-block bg-primary-50 rounded-full px-3 py-1 text-sm text-primary-700">
+                          <span class="font-medium">Języki:</span> {member.languages}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-6 italic border-l-4 border-primary-100 pl-4">
+                      "{member.bio || member.philosophy}"
+                    </p>
+                    
+                    <div>
+                      <h4 class="text-lg font-medium text-gray-900 mb-3">Kwalifikacje:</h4>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {member.qualifications.map(qualification => (
+                          <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-primary-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-sm">{qualification}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us Section with animations -->
+    <section class="py-16 bg-gradient-to-br from-primary-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <AnimatedSection animation="fadeIn" delay={0.1}>
+            <div class="text-center mb-16">
+              <h2 class="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
+                Dlaczego my?
+              </h2>
+              <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Oferujemy unikalne połączenie profesjonalizmu, przystępności i zrozumienia kulturowego, którego nie znajdziesz w tradycyjnych kancelariach.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <AnimatedSection animation="scale" delay={0.2 + index * 0.1} duration={0.5}>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                  <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 mb-6">
+                    <Fragment set:html={benefit.icon} />
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+                  <p class="text-gray-600 flex-grow">{benefit.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <div class="mt-16 bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
+            <p class="text-2xl text-gray-700 font-serif mb-8">
+              "Nie jesteś kolejnym numerem w aktach. Dla nas liczy się Twoja historia i Twoje cele."
+            </p>
+            <div class="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-primary-700 transition-colors">
+              <a href="#contact" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
+                Napisz do nas już dziś
+              </a>
+            </div>
+            <p class="text-gray-500 mt-4">Pokażemy Ci, jak skutecznie walczyć o swoje prawa w UK!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary-600 mb-2">9+</div>
+              <div class="text-gray-600">Lat doświadczenia</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary-600 mb-2">800+</div>
+              <div class="text-gray-600">Zadowolonych rodzin</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary-600 mb-2">70%</div>
+              <div class="text-gray-600">Spraw zakończonych ugodą</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary-600 mb-2">£1100+</div>
+              <div class="text-gray-600">Średnich oszczędności</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout> 

@@ -1,0 +1,9 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo2.svg';
+import NavigationReact from './NavigationReact';
+
+const currentPath = Astro.url.pathname;
+---
+
+<NavigationReact client:load logo={logo} currentPath={currentPath} />

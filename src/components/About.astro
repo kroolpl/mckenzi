@@ -1,0 +1,55 @@
+---
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
+---
+
+<section id="about" class="py-16 bg-gradient-to-b from-primary-50 to-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-400 opacity-90 rounded-lg transition-all duration-300 group-hover:opacity-100"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=800&auto=format&fit=crop&q=80" 
+            alt="Konsultacja prawna" 
+            class="relative rounded-lg shadow-xl w-full aspect-4/3 object-cover mix-blend-overlay transition-transform duration-300 group-hover:scale-[1.02]"
+          />
+        </div>
+        <div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-6">
+            Eksperckie Wsparcie Prawne dla Polskich Rodzin
+          </h2>
+          <div class="space-y-4 text-gray-600">
+            <p>
+              Z ponad 15-letnim doświadczeniem w brytyjskim prawie rodzinnym, świadczymy profesjonalne usługi McKenzie Friend specjalnie dla Polaków mieszkających w Wielkiej Brytanii.
+            </p>
+            <p>
+              Nasz zespół rozumie wyjątkowe wyzwania, przed którymi stają polskie rodziny w brytyjskim systemie prawnym. Oferujemy kompleksowe wsparcie w języku polskim i angielskim, zapewniając jasną komunikację i zrozumienie podczas całego procesu prawnego.
+            </p>
+            <p>
+              Wyróżniamy się:
+            </p>
+            <ul class="list-none space-y-3">
+              {[
+                "Wieloletnim doświadczeniem w brytyjskich sądach rodzinnych",
+                "Dwujęzyczną ekspertyzą (polski i angielski)",
+                "Dogłębną znajomością obu systemów prawnych",
+                "Profesjonalnym i empatycznym podejściem",
+              ].map(item => (
+                <li class="flex items-start gap-3">
+                  <CheckCircleIcon className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspect-4\/3 {
+    aspect-ratio: 4/3;
+  }
+</style>

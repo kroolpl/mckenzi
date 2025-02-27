@@ -1,0 +1,27 @@
+---
+import MotionDiv from './MotionDiv';
+
+interface Props {
+  animation?: 'fadeIn' | 'slideUp' | 'slideIn' | 'scale' | 'none';
+  delay?: number;
+  duration?: number;
+  class?: string;
+}
+
+const { 
+  animation = 'fadeIn', 
+  delay = 0, 
+  duration = 0.5, 
+  class: className = '' 
+} = Astro.props;
+---
+
+<MotionDiv 
+  animation={animation} 
+  delay={delay} 
+  duration={duration} 
+  className={className}
+  client:visible
+>
+  <slot />
+</MotionDiv>

@@ -1,0 +1,316 @@
+---
+import Layout from './Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import AnimatedSection from '../components/AnimatedSection.astro';
+import { formatDate } from '../utils/dateUtils';
+import { Image } from 'astro:assets';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | McKenzie Friend Blog`}>
+  <Navigation />
+  
+  <main class="pt-20">
+    <article>
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-br from-primary-50 to-white py-16">
+        <div class="container mx-auto px-4">
+          <AnimatedSection animation="fadeIn" duration={0.8}>
+            <div class="max-w-3xl mx-auto">
+              <div class="flex items-center text-sm text-gray-500 mb-4">
+                <span>{formatDate(frontmatter.pubDate)}</span>
+                <span class="mx-2">•</span>
+                <span>{frontmatter.author}</span>
+              </div>
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-6 leading-tight">{frontmatter.title}</h1>
+              <p class="text-xl text-gray-700 mb-8 leading-relaxed">{frontmatter.description}</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {frontmatter.tags.map((tag: string) => (
+                  <a 
+                    href={`/blog/tag/${tag}`} 
+                    class="text-sm bg-primary-50 text-primary-700 px-3 py-1 rounded-full hover:bg-primary-100 transition-colors"
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+      
+      <!-- Featured Image -->
+      {frontmatter.image && (
+        <div class="container mx-auto px-4 -mt-8">
+          <div class="max-w-4xl mx-auto">
+            <div class="rounded-xl overflow-hidden shadow-xl">
+              <Image 
+                src={frontmatter.image.src} 
+                alt={frontmatter.image.alt || frontmatter.title} 
+                width={frontmatter.image.width || 1200}
+                height={frontmatter.image.height || 675}
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      
+      <!-- Content -->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto prose prose-lg prose-primary">
+            <slot />
+          </div>
+        </div>
+      </section>
+
+      <!-- Back to Articles & CTA Section -->
+      <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto">
+            <!-- Back to Articles -->
+            <div class="mb-16 text-center">
+              <a 
+                href="/blog" 
+                class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium group"
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  class="h-5 w-5 mr-2 transform group-hover:-translate-x-1 transition-transform" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path 
+                    fill-rule="evenodd" 
+                    d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" 
+                    clip-rule="evenodd" 
+                  />
+                </svg>
+                Wróć do wszystkich artykułów
+              </a>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+              <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-4">
+                  Potrzebujesz pomocy prawnej?
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                  Skontaktuj się z nami, aby umówić bezpłatną konsultację. Pomożemy Ci zrozumieć Twoje prawa i możliwości.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/kontakt" 
+                    class="inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-md text-base font-medium text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow-md"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      class="h-5 w-5 mr-2" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="2" 
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    Umów konsultację
+                  </a>
+                  <a 
+                    href="https://m.me/YOUR_FACEBOOK_USERNAME" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
+                    </svg>
+                    Napisz na Messenger
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Contact Info -->
+              <div class="flex flex-col sm:flex-row gap-6 justify-center text-center text-gray-600">
+                <div>
+                  <p class="font-medium">Telefon:</p>
+                  <a href="tel:+44123456789" class="hover:text-primary-600 transition-colors">
+                    +44 123 456 789
+                  </a>
+                </div>
+                <div>
+                  <p class="font-medium">Email:</p>
+                  <a href="mailto:kontakt@mckenziefriend.co.uk" class="hover:text-primary-600 transition-colors">
+                    kontakt@mckenziefriend.co.uk
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Base typography improvements */
+  .prose {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #374151;
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  /* Headings */
+  .prose h2 {
+    color: var(--color-primary-800);
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 700;
+    font-family: var(--font-serif);
+  }
+  
+  .prose h3 {
+    color: var(--color-primary-700);
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-weight: 600;
+    font-family: var(--font-serif);
+  }
+
+  /* Paragraphs and lists */
+  .prose p {
+    margin-bottom: 1.25em;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .prose ul, .prose ol {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    padding-left: 1.25em;
+  }
+
+  .prose li {
+    margin-bottom: 0.375em;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Lists with multiple paragraphs */
+  .prose li > p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  /* Links */
+  .prose a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary-200);
+    transition: all 0.2s ease;
+    padding-bottom: 1px;
+  }
+  
+  .prose a:hover {
+    color: var(--color-primary-800);
+    border-bottom-color: var(--color-primary-400);
+  }
+
+  /* Blockquotes */
+  .prose blockquote {
+    font-style: italic;
+    border-left: 3px solid var(--color-primary-200);
+    padding-left: 1.25em;
+    margin: 1.5em 0;
+    color: var(--color-primary-700);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Code blocks */
+  .prose pre {
+    background-color: #f3f4f6;
+    border-radius: 0.375rem;
+    padding: 1em;
+    margin: 1.25em 0;
+    overflow-x: auto;
+  }
+
+  .prose code {
+    font-family: ui-monospace, monospace;
+    font-size: 0.9em;
+    background-color: #f3f4f6;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+  }
+
+  /* Tables */
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95rem;
+  }
+
+  .prose th, .prose td {
+    padding: 0.625em;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose th {
+    background-color: #f9fafb;
+    font-weight: 600;
+  }
+
+  /* Images */
+  .prose img {
+    border-radius: 0.375rem;
+    margin: 1.5em 0;
+  }
+
+  /* Improved spacing between sections */
+  .prose > * + * {
+    margin-top: 1.25em;
+  }
+
+  .prose > *:first-child {
+    margin-top: 0;
+  }
+
+  .prose > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Custom content width for better readability */
+  @media (min-width: 768px) {
+    .prose {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Additional styles for the new sections */
+  .group:hover svg {
+    transform: translateX(-4px);
+  }
+</style> 

@@ -1,0 +1,66 @@
+---
+// Define SVG icons directly
+const icons = {
+  scale: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
+  </svg>`,
+  document: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+  </svg>`,
+  folder: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+  </svg>`,
+  language: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+  </svg>`
+};
+
+// Define the type for icon keys
+type IconKey = keyof typeof icons;
+
+const services = [
+  {
+    title: "Wsparcie w Sądzie Rodzinnym",
+    description: "Profesjonalne wsparcie podczas rozpraw sądowych, włączając przygotowanie dokumentacji i obecność w sądzie.",
+    icon: "scale" as IconKey
+  },
+  {
+    title: "Przygotowanie Dokumentów",
+    description: "Fachowa pomoc w przygotowaniu dokumentów prawnych, formularzy i wniosków sądowych w języku angielskim i polskim.",
+    icon: "document" as IconKey
+  },
+  {
+    title: "Zarządzanie Sprawą",
+    description: "Kompleksowe zarządzanie sprawą, w tym organizacja dowodów i prowadzenie harmonogramu sprawy.",
+    icon: "folder" as IconKey
+  },
+  {
+    title: "Tłumaczenia",
+    description: "Dokładne tłumaczenie dokumentów prawnych oraz tłumaczenie w czasie rzeczywistym podczas spotkań i rozpraw.",
+    icon: "language" as IconKey
+  }
+];
+---
+
+<section id="services" class="py-16 bg-gradient-to-b from-white to-primary-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">Nasze Usługi</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Kompleksowe wsparcie prawne dostosowane do potrzeb Polaków w brytyjskim systemie sądów rodzinnych.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service) => (
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 text-primary-600">
+            <Fragment set:html={icons[service.icon]} />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

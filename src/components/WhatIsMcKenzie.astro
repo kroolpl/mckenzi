@@ -1,0 +1,74 @@
+---
+import { InformationCircleIcon, UserGroupIcon, ScaleIcon } from '@heroicons/react/24/outline';
+
+const features = [
+  {
+    title: "Wsparcie bez licencji prawniczej",
+    description: "McKenzie Friend to osoba, która pomaga w sprawach sądowych bez posiadania formalnych kwalifikacji prawniczych, oferując wsparcie moralne i praktyczną pomoc.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+    </svg>`
+  },
+  {
+    title: "Uznane przez brytyjskie sądy",
+    description: "Rola McKenzie Friend jest oficjalnie uznana przez brytyjski system sądowy od 1970 roku, kiedy to została ustanowiona w sprawie McKenzie v McKenzie.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
+    </svg>`
+  },
+  {
+    title: "Pomoc dla osób bez reprezentacji",
+    description: "Szczególnie cenna pomoc dla osób, które nie mają środków na zatrudnienie prawnika lub zdecydowały się reprezentować samodzielnie (litigant in person).",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+    </svg>`
+  }
+];
+---
+
+<section class="py-16 bg-gradient-to-br from-primary-50 to-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-primary-100 text-primary-800 text-sm font-medium px-3 py-1 rounded-full">Zrozum swoją pomoc</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mt-4 mb-4">Czym jest McKenzie Friend?</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          McKenzie Friend to osoba, która zapewnia wsparcie moralne, praktyczną pomoc i podstawowe porady osobom reprezentującym się samodzielnie w sądzie.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-8 md:p-12">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700">
+              Termin "McKenzie Friend" pochodzi od sprawy sądowej <em>McKenzie v McKenzie</em> z 1970 roku, kiedy to sąd uznał prawo osoby do otrzymania pomocy od osoby niebędącej prawnikiem podczas rozprawy sądowej.
+            </p>
+            
+            <p class="text-gray-700 mt-4">
+              W kontekście polskich obywateli w Wielkiej Brytanii, McKenzie Friend oferuje nieocenioną pomoc w pokonywaniu barier językowych i kulturowych, szczególnie w sprawach rodzinnych, które mogą być emocjonalnie trudne i skomplikowane.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-10">
+            {features.map(feature => (
+              <div class="flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 mb-4">
+                  <Fragment set:html={feature.icon} />
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p class="text-gray-600 text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div class="mt-10 bg-primary-50 rounded-xl p-6 border-l-4 border-primary-500">
+            <h4 class="font-semibold text-gray-900 mb-2">Ważne do zapamiętania:</h4>
+            <p class="text-gray-700 text-sm">
+              McKenzie Friend <strong>nie może</strong> reprezentować Cię w sądzie, przemawiać w Twoim imieniu ani podpisywać dokumentów. Może jednak siedzieć obok Ciebie, robić notatki, udzielać porad i zapewniać wsparcie moralne podczas postępowania sądowego.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

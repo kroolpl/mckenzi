@@ -1,0 +1,53 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/600.css';
+import { ViewTransitions } from 'astro:transitions';
+import logoSvg from '../assets/images/logo.svg';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Professional McKenzie Friend services for Polish citizens in UK, specializing in family law cases." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={logoSvg.src} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Add ViewTransitions for smooth page navigation -->
+    <ViewTransitions />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <slot />
+    
+    <script>
+      // Optional: Add any global scripts here
+      document.addEventListener('astro:page-load', () => {
+        // This code runs on every page navigation after the page is loaded
+        console.log('Page loaded');
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

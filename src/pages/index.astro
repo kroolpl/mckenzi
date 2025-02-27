@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Footer from '../components/Footer.astro';
+import WhatIsMcKenzie from '../components/WhatIsMcKenzie.astro';
+import { Image } from 'astro:assets';
+import beataImage from '../assets/images/Beata.jpg';
+import AnimatedSection from '../components/AnimatedSection.astro';
+import AnnaImg from '../assets/images/testimonials/Anna.jpg';
+import MartaImg from '../assets/images/testimonials/Marta.jpg';
+import PiotrImg from '../assets/images/testimonials/piotr.jpg';
+---
+
+<Layout title="McKenzie Friend Services | Profesjonalne Wsparcie Prawne dla Polaków w UK">
+  <Navigation />
+  <main>
+    <Hero />
+    <AnimatedSection animation="fadeIn" duration={0.8}>
+      <WhatIsMcKenzie />
+    </AnimatedSection>
+    <AnimatedSection animation="fadeIn" duration={0.7} delay={0.1}>
+      <Services />
+    </AnimatedSection>
+    <AnimatedSection animation="slideUp" duration={0.6} delay={0.1}>
+      <Testimonials />
+    </AnimatedSection>
+    <section class="py-16 bg-gradient-to-br from-[#F6FBFE] to-white relative overflow-hidden">
+      <div class="container mx-auto px-4 relative z-10">
+        <AnimatedSection animation="scale" duration={0.7} delay={0.2}>
+          <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/2 bg-primary-600 p-10 text-white flex flex-col justify-center relative">
+                <!-- Expert image with overlay -->
+                <div class="absolute inset-0 opacity-15 z-0">
+                  <Image 
+                    src={beataImage} 
+                    alt="Beata Modzelewska" 
+                    class="w-full h-full object-cover object-center"
+                    width={500}
+                    height={500}
+                    quality={80}
+                  />
+                </div>
+                <div class="relative z-10">
+                  <AnimatedSection animation="slideIn" delay={0.4} duration={0.5}>
+                    <h2 class="text-3xl font-serif font-bold mb-4">Potrzebujesz wsparcia w sprawie rodzinnej?</h2>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection animation="fadeIn" delay={0.5} duration={0.6}>
+                    <p class="text-white/90 mb-6">
+                      Nie czekaj, aż sytuacja się pogorszy. Skorzystaj z naszego doświadczenia i wiedzy, aby skutecznie zadbać o swoje prawa i dobro Twoich dzieci.
+                    </p>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection animation="fadeIn" delay={0.6} duration={0.5}>
+                    <ul class="space-y-3 mb-8">
+                      <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Oszczędność do £1100 w porównaniu z tradycyjnymi prawnikami</span>
+                      </li>
+                      <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Wsparcie w języku polskim na każdym etapie</span>
+                      </li>
+                      <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>70% spraw kończy się ugodą bez długotrwałych procesów</span>
+                      </li>
+                    </ul>
+                  </AnimatedSection>
+                </div>
+              </div>
+              <div class="md:w-1/2 p-10 flex flex-col justify-center">
+                <AnimatedSection animation="slideIn" delay={0.3} duration={0.5}>
+                  <h3 class="text-2xl font-semibold text-gray-900 mb-6">Umów bezpłatną 15-minutową konsultację</h3>
+                </AnimatedSection>
+                
+                <AnimatedSection animation="fadeIn" delay={0.5} duration={0.6}>
+                  <form class="space-y-4">
+                    <div>
+                      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Imię i nazwisko</label>
+                      <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                      <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                      <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div class="flex items-center justify-center mt-4 space-x-4">
+                      <span class="text-gray-500 text-sm">lub</span>
+                      <a 
+                        href="https://m.me/YOUR_FACEBOOK_USERNAME" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
+                        </svg>
+                        Napisz na Messengerze
+                      </a>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-600 text-white py-3 px-6 rounded-md font-medium hover:bg-primary-700 transition-colors shadow-sm">
+                      Umów konsultację
+                    </button>
+                    <p class="text-xs text-gray-500 text-center mt-2">
+                      Odpowiadamy w ciągu 24 godzin w dni robocze.
+                    </p>
+                  </form>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-100 rounded-full opacity-50"></div>
+      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-60 h-60 bg-primary-100 rounded-full opacity-50"></div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

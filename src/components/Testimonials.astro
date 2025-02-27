@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import AnnaImg from '../assets/images/testimonials/Anna.jpg';
+import MartaImg from '../assets/images/testimonials/Marta.jpg';
+import PiotrImg from '../assets/images/testimonials/piotr.jpg';
+
+const testimonials = [
+  {
+    name: "Anna Kowalska",
+    text: "Ich wsparcie podczas mojej sprawy o opiekę nad dziećmi było nieocenione. Pomogli mi zrozumieć każdy etap procesu i zapewnili, że mój głos został wysłuchany w sądzie.",
+    location: "Manchester",
+    image: AnnaImg
+  },
+  {
+    name: "Piotr Nowak",
+    text: "Profesjonalni, kompetentni i wyrozumiali. Sprawili, że trudny proces rozwodowy stał się znacznie łatwiejszy do przejścia, szczególnie biorąc pod uwagę barierę językową.",
+    location: "Londyn",
+    image: PiotrImg
+  },
+  {
+    name: "Marta Wiśniewska",
+    text: "Nie poradziłabym sobie z postępowaniem w sądzie rodzinnym bez ich eksperckiego wsparcia. Ich dwujęzyczna pomoc zrobiła ogromną różnicę.",
+    location: "Birmingham",
+    image: MartaImg
+  }
+];
+---
+
+<section class="py-16 bg-gradient-to-b from-white to-primary-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
+        Opinie Klientów
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Zobacz, co mówią nasi klienci o współpracy z naszymi usługami McKenzie Friend.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {testimonials.map(testimonial => (
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative group">
+          {/* Decorative elements */}
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-400/10 to-primary-600/10 rounded-bl-[80px] rounded-tr-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+          
+          {/* Quote icon */}
+          <div class="relative">
+            <svg class="w-10 h-10 text-primary-500/20 absolute -top-2 -left-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+          
+          {/* Testimonial text */}
+          <p class="text-gray-600 mb-8 relative z-10 italic">"{testimonial.text}"</p>
+          
+          {/* Author info with avatar */}
+          <div class="flex items-center gap-4 relative z-10">
+            <div class="w-16 h-16 rounded-full overflow-hidden ring-4 ring-primary-50">
+              <Image 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                class="w-full h-full object-cover"
+                width={64}
+                height={64}
+              />
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">{testimonial.name}</p>
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span>{testimonial.location}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .group:hover .bg-gradient-to-br {
+    opacity: 0.15;
+  }
+</style>

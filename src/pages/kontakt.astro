@@ -1,0 +1,375 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import AnimatedSection from '../components/AnimatedSection.astro';
+import { PhoneIcon, EnvelopeIcon, ClockIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
+---
+
+<Layout title="Kontakt | Mckenziefriend.co.uk | Wsparcie Prawne dla Polaków w UK">
+  <Navigation />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-50 to-white py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <AnimatedSection animation="fadeIn" duration={0.8}>
+          <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Skontaktuj się z nami</h1>
+            <p class="text-lg text-gray-700 mb-8">
+              Jesteśmy tutaj, aby pomóc Ci w sprawach prawnych. Pracujemy w pełni online - skorzystaj z formularza lub zadzwoń do nas.
+            </p>
+            
+            <!-- Messenger Call-to-Action -->
+            <div class="mt-8 inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://m.me/YOUR_FACEBOOK_USERNAME" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center shadow-md"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
+                </svg>
+                Napisz do nas na Messengerze
+              </a>
+              <span class="text-gray-500">lub</span>
+              <a 
+                href="#contact-form" 
+                class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center shadow-md"
+              >
+                <EnvelopeIcon className="w-5 h-5 mr-2" />
+                Wypełnij formularz
+              </a>
+            </div>
+            
+            <!-- Quick Info -->
+            <p class="mt-4 text-sm text-gray-600">
+              Odpowiadamy na wiadomości w ciągu 24 godzin w dni robocze
+            </p>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-12 gap-12">
+          <!-- Contact Form - Now wider -->
+          <div class="md:col-span-7">
+            <AnimatedSection animation="slideIn" duration={0.7} delay={0.1}>
+              <div class="bg-white rounded-xl shadow-xl p-8 md:p-10">
+                <h2 class="text-2xl font-serif font-semibold text-gray-900 mb-6">Wyślij wiadomość</h2>
+                <form id="contact-form" class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">Imię</label>
+                      <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Nazwisko</label>
+                      <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone" 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Temat</label>
+                    <select 
+                      id="subject" 
+                      name="subject" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    >
+                      <option value="" disabled selected>Wybierz temat</option>
+                      <option value="family">Prawo rodzinne</option>
+                      <option value="custody">Opieka nad dziećmi</option>
+                      <option value="divorce">Rozwód</option>
+                      <option value="other">Inne</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Wiadomość</label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows="5" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    ></textarea>
+                  </div>
+                  
+                  <div class="flex items-start">
+                    <input 
+                      type="checkbox" 
+                      id="consent" 
+                      name="consent" 
+                      required
+                      class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    />
+                    <label for="consent" class="ml-2 block text-sm text-gray-600">
+                      Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na moje zapytanie.
+                    </label>
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    class="w-full bg-primary-600 text-white py-3 px-6 rounded-md font-medium hover:bg-primary-700 transition-colors shadow-sm"
+                  >
+                    Wyślij wiadomość
+                  </button>
+                </form>
+              </div>
+            </AnimatedSection>
+          </div>
+          
+          <!-- Contact Info - Now narrower -->
+          <div class="md:col-span-5">
+            <AnimatedSection animation="fadeIn" duration={0.7} delay={0.2}>
+              <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-md">
+                <h2 class="text-2xl font-serif font-semibold text-gray-900 mb-6">Informacje kontaktowe</h2>
+                
+                <ul class="space-y-6">
+                  <li class="flex items-start">
+                    <PhoneIcon className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" />
+                    <div class="ml-4">
+                      <h3 class="font-medium text-gray-900">Telefon</h3>
+                      <p class="text-gray-700 mt-1">+44 123 456 789</p>
+                      <p class="text-sm text-gray-500 mt-1">Dostępni od poniedziałku do piątku, 9:00 - 17:00</p>
+                    </div>
+                  </li>
+                  
+                  <li class="flex items-start">
+                    <EnvelopeIcon className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" />
+                    <div class="ml-4">
+                      <h3 class="font-medium text-gray-900">Email</h3>
+                      <p class="text-gray-700 mt-1">kontakt@mckenziefriend.co.uk</p>
+                      <p class="text-sm text-gray-500 mt-1">Odpowiadamy w ciągu 24 godzin w dni robocze</p>
+                    </div>
+                  </li>
+                  
+                  <li class="flex items-start">
+                    <VideoCameraIcon className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" />
+                    <div class="ml-4">
+                      <h3 class="font-medium text-gray-900">Konsultacje online</h3>
+                      <p class="text-gray-700 mt-1">Zoom, Teams, lub inna platforma</p>
+                      <p class="text-sm text-gray-500 mt-1">Pracujemy w pełni zdalnie dla Twojej wygody</p>
+                    </div>
+                  </li>
+                  
+                  <li class="flex items-start">
+                    <ClockIcon className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" />
+                    <div class="ml-4">
+                      <h3 class="font-medium text-gray-900">Godziny pracy</h3>
+                      <p class="text-gray-700 mt-1">Poniedziałek - Piątek: 9:00 - 17:00</p>
+                      <p class="text-gray-700">Sobota: 10:00 - 14:00</p>
+                      <p class="text-gray-700">Niedziela: Zamknięte</p>
+                    </div>
+                  </li>
+                  
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
+                    </svg>
+                    <div class="ml-4">
+                      <h3 class="font-medium text-gray-900">Facebook Messenger</h3>
+                      <p class="text-gray-700 mt-1">Napisz do nas na Messengerze</p>
+                      <p class="text-sm text-gray-500 mt-1">Szybka i wygodna forma kontaktu</p>
+                      <a 
+                        href="https://m.me/YOUR_FACEBOOK_USERNAME" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium mt-2"
+                      >
+                        Otwórz czat
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+            
+            <!-- Online Service Highlight Box -->
+            <AnimatedSection animation="scale" duration={0.7} delay={0.3}>
+              <div class="mt-8 bg-primary-50 rounded-xl p-8 border border-primary-100 shadow-md">
+                <h3 class="text-xl font-serif font-semibold text-primary-800 mb-4">Pracujemy w pełni online</h3>
+                <p class="text-gray-700 mb-4">
+                  Świadczymy usługi zdalnie dla klientów z całej Wielkiej Brytanii. Dzięki temu możesz otrzymać profesjonalne wsparcie prawne bez wychodzenia z domu.
+                </p>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Oszczędność czasu i kosztów dojazdu</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Elastyczne terminy spotkań</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Bezpieczna i poufna komunikacja</span>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <AnimatedSection animation="fadeIn" duration={0.7}>
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-4">Często zadawane pytania</h2>
+            <p class="text-gray-700">Odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług</p>
+          </div>
+        </AnimatedSection>
+        
+        <div class="max-w-4xl mx-auto">
+          <AnimatedSection animation="slideUp" duration={0.6} delay={0.1}>
+            <div class="space-y-6">
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Jak wygląda proces konsultacji online?</h3>
+                <p class="text-gray-700">Po umówieniu terminu, otrzymasz link do spotkania online. Podczas konsultacji omówimy Twoją sytuację, odpowiemy na pytania i zaproponujemy najlepsze rozwiązania. Wszystkie dokumenty możesz przesłać nam bezpiecznie drogą elektroniczną.</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Jak szybko mogę umówić się na konsultację?</h3>
+                <p class="text-gray-700">Zazwyczaj jesteśmy w stanie zorganizować konsultację w ciągu 2-3 dni roboczych od pierwszego kontaktu. W pilnych przypadkach staramy się znaleźć wcześniejszy termin.</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Ile kosztuje pierwsza konsultacja?</h3>
+                <p class="text-gray-700">Oferujemy bezpłatną 15-minutową wstępną konsultację, podczas której możemy ocenić Twoją sytuację i zaproponować dalsze kroki. Pełna konsultacja jest płatna według naszego cennika.</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Czy mogę otrzymać pomoc w języku polskim?</h3>
+                <p class="text-gray-700">Tak, wszystkie nasze usługi są dostępne w języku polskim. Nasz zespół składa się z osób płynnie mówiących po polsku, co zapewnia komfort komunikacji.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900">
+      <div class="container mx-auto px-4">
+        <AnimatedSection animation="fadeIn" duration={0.7}>
+          <div class="text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold mb-6 text-primary-700">Potrzebujesz natychmiastowej pomocy?</h2>
+            <p class="text-xl text-gray-700 mb-8">
+              Zadzwoń do nas lub wyślij wiadomość, a odpowiemy najszybciej jak to możliwe.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="tel:+44123456789" 
+                class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center shadow-md"
+              >
+                <PhoneIcon className="w-5 h-5 mr-2" />
+                Zadzwoń teraz
+              </a>
+              <a 
+                href="#contact-form" 
+                class="bg-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center shadow-md"
+              >
+                <EnvelopeIcon className="w-5 h-5 mr-2" />
+                Wyślij wiadomość
+              </a>
+              <a 
+                href="https://m.me/YOUR_FACEBOOK_USERNAME" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors inline-flex items-center justify-center shadow-md"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
+                </svg>
+                Messenger
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+
+  <!-- Facebook Messenger Chat Plugin -->
+  <div id="fb-root"></div>
+
+  <script>
+    // Tell TypeScript about FB global
+    declare const FB: any;
+    
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s) as HTMLScriptElement; js.id = id;
+      js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
+      fjs.parentNode?.insertBefore(js, fjs);
+
+      // Create and inject the chat widget
+      const chatDiv = document.createElement('div');
+      chatDiv.className = 'fb-customerchat';
+      chatDiv.setAttribute('attribution', 'install_email');
+      chatDiv.setAttribute('attribution_version', 'biz_inbox');
+      chatDiv.setAttribute('page_id', 'YOUR_FACEBOOK_PAGE_ID');
+      document.body.appendChild(chatDiv);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</Layout> 
