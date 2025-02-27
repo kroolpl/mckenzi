@@ -1,7 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import bckg from '../assets/images/bckg.jpeg';
 import avatarMarta from '../assets/images/avatar_Marta.webp';
 import avatarBeta from '../assets/images/avatat_beta.webp';
+
+// Add a tiny placeholder version of the background image
+const tinyPlaceholder = 'data:image/jpeg;base64,...'; // Base64 encoded tiny version of your background
 ---
 
 <section class="relative overflow-hidden min-h-[90vh] flex items-center">
@@ -11,9 +15,20 @@ import avatarBeta from '../assets/images/avatat_beta.webp';
     <div class="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/75 to-black/70 mix-blend-multiply"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     
-    <img 
-      src={bckg.src} 
-      alt="Background" 
+    <!-- Add blur placeholder -->
+    <div 
+      class="absolute inset-0 bg-cover bg-center blur-xl scale-110 transform"
+      style={`background-image: url(${tinyPlaceholder})`}
+    ></div>
+    
+    <Image 
+      src={bckg} 
+      alt="Background"
+      width={1920}
+      height={1080}
+      quality={80}
+      loading="eager"
+      priority={true}
       class="w-full h-full object-cover scale-110 animate-subtle-zoom opacity-35"
     />
     
