@@ -4,7 +4,7 @@ description: "Dowiedz się o nowych przepisach dotyczących obowiązkowej mediac
 pubDate: 2024-02-15
 author: "McKenzie Friend"
 image:
-  src: "/src/assets/images/blog/mediacje.jpg"
+  src: "/images/blog/mediacje.jpg"
   alt: "Mediacja rodzinna"
   width: 1200
   height: 675
