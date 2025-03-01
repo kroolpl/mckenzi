@@ -148,78 +148,106 @@ const testimonials = [
     <!-- Hero Section with animation -->
     <AnimatedSection animation="fadeIn" duration={0.8}>
       <section class="pt-32 pb-24 relative">
-        <!-- Light blue background -->
-        <div class="absolute inset-0 bg-[#F6FBFE]">
-          <!-- Subtle pattern overlay -->
+        <!-- Enhanced background with multiple layers -->
+        <div class="absolute inset-0">
+          <!-- Primary gradient background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-primary-100/50 to-white"></div>
+          
+          <!-- Animated subtle waves -->
           <div class="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%">
-              <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="10" cy="10" r="1" fill="#0268A1" />
-              </pattern>
-              <rect width="100%" height="100%" fill="url(#dots)" />
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path fill="currentColor" d="M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z" class="text-primary-600/30 animate-wave-slow"></path>
+              <path fill="currentColor" d="M0,50 C20,60 80,40 100,50 L100,100 L0,100 Z" class="text-primary-400/20 animate-wave-slower translate-x-1"></path>
             </svg>
           </div>
+          
+          <!-- Enhanced dot pattern -->
+          <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(#0268A1 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
         </div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
           <AnimatedSection animation="slideUp" delay={0.2} duration={0.6}>
-            <div class="max-w-4xl mx-auto text-center">
-              <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight text-primary-700">
-                Profesjonalne Wsparcie w Sprawach Rodzinnych
-              </h1>
-              <p class="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Oferujemy pomoc prawną online w zakresie prawa rodzinnego w Anglii i Walii. 
-                Działamy od 2015 roku, wspierając rodaków w trudnych sytuacjach sądowych.
-              </p>
-              <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="/#contact" class="bg-primary-600 text-white px-8 py-4 rounded-md font-medium hover:bg-primary-700 transition-colors shadow-sm">
-                  Umów konsultację
-                </a>
-                <a href="https://m.me/YOUR_FACEBOOK_USERNAME" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-medium transition-colors shadow-sm inline-flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.39.27.65l.05 2.02c.02.65.69 1.07 1.27.75l2.26-1.24c.16-.09.34-.14.52-.14.18 0 .36.05.53.13 1.23.53 2.58.82 4 .82 5.64 0 10-4.13 10-9.7C24 6.13 19.64 2 12 2zm6 7.46-2.93 4.67c-.47.73-1.47.92-2.17.37l-2.34-1.73c-.23-.18-.59-.18-.82 0l-3.15 2.39c-.46.35-1.02-.22-.67-.68l2.93-4.67c.47-.73 1.47-.92 2.17-.37l2.34 1.73c.23.18.59.18.82 0l3.15-2.39c.46-.35 1.02.22.67.68z"/>
-                  </svg>
-                  Messenger
-                </a>
-                <a href="#services" class="bg-white text-primary-700 border border-primary-200 px-8 py-4 rounded-md font-medium hover:bg-primary-50 transition-colors">
-                  Zobacz nasze usługi
-                </a>
+            <div class="max-w-5xl mx-auto">
+              <!-- Main content with improved layout -->
+              <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left column: Text content -->
+                <div class="text-left">
+                  <span class="inline-block px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-6">
+                    Wsparcie Prawne
+                  </span>
+                  <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight text-gray-900">
+                    Profesjonalne Wsparcie w Sprawach Rodzinnych
+                  </h1>
+                  <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    Oferujemy pomoc prawną online w zakresie prawa rodzinnego w Anglii i Walii. 
+                    Działamy od 2015 roku, wspierając rodaków w trudnych sytuacjach sądowych.
+                  </p>
+                  
+                  <!-- Enhanced CTA buttons -->
+                  <div class="flex flex-wrap gap-4">
+                    <a href="/#contact" 
+                       class="inline-flex flex-col justify-center px-8 py-4 bg-primary-600 text-white rounded-lg shadow-lg hover:bg-primary-700 transition-all duration-300">
+                      <span>Umów konsultację</span>
+                      <span class="text-sm opacity-80">Darmowe 15-min spotkanie</span>
+                    </a>
+                    <a href="#services" 
+                       class="inline-flex items-center px-8 py-4 bg-white border border-primary-100 text-primary-700 rounded-lg hover:bg-primary-50 transition-colors">
+                      <span>Zobacz nasze usługi</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Right column: Feature highlights -->
+                <div class="space-y-4">
+                  {[
+                    { 
+                      icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
+                      </svg>`, 
+                      title: "Doświadczenie", 
+                      desc: "9+ lat w brytyjskim prawie rodzinnym" 
+                    },
+                    { 
+                      icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                      </svg>`, 
+                      title: "Skuteczność", 
+                      desc: "70% spraw zakończonych ugodą" 
+                    },
+                    { 
+                      icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                      </svg>`, 
+                      title: "Oszczędność", 
+                      desc: "Do £1100 mniej niż tradycyjny prawnik" 
+                    },
+                    { 
+                      icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                      </svg>`, 
+                      title: "Wsparcie", 
+                      desc: "Pomoc w języku polskim na każdym etapie" 
+                    }
+                  ].map(feature => (
+                    <div class="bg-white/80 backdrop-blur rounded-xl p-4 border border-primary-50 shadow-sm hover:shadow-md transition-all duration-300">
+                      <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-100 text-primary-700">
+                          <Fragment set:html={feature.icon} />
+                        </div>
+                        <div>
+                          <h3 class="font-medium text-gray-900">{feature.title}</h3>
+                          <p class="text-gray-600 text-sm">{feature.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </AnimatedSection>
-        </div>
-        
-        <!-- Stats Section with animation -->
-        <div class="container mx-auto px-4 mt-16 relative z-10">
-          <div class="max-w-5xl mx-auto">
-            <AnimatedSection animation="fadeIn" delay={0.4} duration={0.6}>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="bg-white rounded-md p-4 border border-primary-100 text-center shadow-sm">
-                  <div class="text-3xl font-bold mb-1 text-primary-700">9+</div>
-                  <div class="text-sm text-gray-600">Lat doświadczenia</div>
-                </div>
-                <div class="bg-white rounded-md p-4 border border-primary-100 text-center shadow-sm">
-                  <div class="text-3xl font-bold mb-1 text-primary-700">800+</div>
-                  <div class="text-sm text-gray-600">Zadowolonych klientów</div>
-                </div>
-                <div class="bg-white rounded-md p-4 border border-primary-100 text-center shadow-sm">
-                  <div class="text-3xl font-bold mb-1 text-primary-700">70%</div>
-                  <div class="text-sm text-gray-600">Spraw zakończonych ugodą</div>
-                </div>
-                <div class="bg-white rounded-md p-4 border border-primary-100 text-center shadow-sm">
-                  <div class="text-3xl font-bold mb-1 text-primary-700">£1100+</div>
-                  <div class="text-sm text-gray-600">Średnich oszczędności</div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-        
-        <!-- Wave Divider -->
-        <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden" style="height: 70px; transform: translateY(1px);">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" class="w-full h-full">
-            <path fill="#ffffff" fill-opacity="1" d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,90.7C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-          </svg>
         </div>
       </section>
     </AnimatedSection>
@@ -379,7 +407,22 @@ const testimonials = [
 </Layout>
 
 <style>
-  .bg-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* Add these new animations */
+  @keyframes wave-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+  }
+  
+  @keyframes wave-slower {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+  }
+
+  .animate-wave-slow {
+    animation: wave-slow 8s ease-in-out infinite;
+  }
+
+  .animate-wave-slower {
+    animation: wave-slower 12s ease-in-out infinite;
   }
 </style> 
